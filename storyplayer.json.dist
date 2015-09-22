@@ -6,7 +6,7 @@
         "stories/"
     ],
     "testrepo": {
-        "path": "./tmp",
+        "path": "./tmp/hubflow-test-repo",
         "origin": "git@github.com:ganbarodigital/hubflow-test-repo.git"
     }
 }

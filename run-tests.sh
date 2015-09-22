@@ -34,9 +34,16 @@ fi
 
 # at this point, Storyplayer and all of its dependencies have been
 # successfully downloaded and installed
-#
-# we need to make sure the checked out copy of hubflow is in the path
-export PATH=$(cd .. ; pwd):$PATH
+
+# separate out the system-under-test
+SUT=$1
+shift
+
+# we need to make sure we have the copy of Hubflow that we want to test
+if [[ ! -e ./tmp/hubflow-$SUT ]] ; then
+    ( cd ./tmp ; git clone -b $SUT https://github.com/datasift/gitflow.git ./hubflow-$SUT && cd hubflow-$SUT && git submodule update ) || die "Unable to clone Hubflow $SUT"
+fi
+export PATH=`pwd`/tmp/hubflow-$SUT:$PATH
 
 # now we just need to run the tests
-vendor/bin/storyplayer "$@"
+vendor/bin/storyplayer -s $SUT "$@"

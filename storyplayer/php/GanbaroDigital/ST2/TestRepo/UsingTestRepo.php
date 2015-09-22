@@ -25,10 +25,9 @@ class UsingTestRepo
 
         // where is it going?
         $path = fromTestRepo()->getPathToLocalRepo();
-        $parentPath = dirname($path);
 
         // unpack the tarball
-        usingShell()->runCommand("cd $parentPath && tar -zxf resources/test-repo.tgz");
+        usingShell()->runCommand("TOPDIR=`pwd` && mkdir -p $path && cd $path && tar -zxf \$TOPDIR/resources/test-repo.tgz");
 
         // make sure everything is there
         if (!IsGitRepo::check($path)) {
