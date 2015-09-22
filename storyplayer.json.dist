@@ -1,0 +1,12 @@
+{
+    "defaults": [
+        "-s", "localhost",
+        "-t", "localhost",
+        "play-story",
+        "stories/"
+    ],
+    "testrepo": {
+        "path": "./tmp",
+        "origin": "git@github.com:ganbarodigital/hubflow-test-repo.git"
+    }
+}

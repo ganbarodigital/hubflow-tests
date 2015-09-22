@@ -1,0 +1,7 @@
+{
+    "name": "hubflow",
+    "require": {
+        "datasift/storyplayer": "^2.3",
+        "ganbarodigital/php-git": "dev-develop"
+    }
+}

@@ -1,0 +1,5 @@
+composer.lock
+composer.phar
+storyplayer.log
+tmp
+vendor
