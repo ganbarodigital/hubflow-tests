@@ -139,4 +139,20 @@ class UsingTestRepo
         $log->endAction();
         return $result;
     }
+
+    public function runCommandAndIgnoreErrors($command)
+    {
+        // what are we doing?
+        $log = usingLog()->startAction("run command '{$command}' in local Git repo");
+
+        // where is the git repo?
+        $path = realpath(fromTestRepo()->getPathToLocalRepo());
+
+        // run it
+        $result = usingShell()->runCommandAndIgnoreErrors("cd {$path} && {$command}");
+
+        // all done
+        $log->endAction();
+        return $result;
+    }
 }
