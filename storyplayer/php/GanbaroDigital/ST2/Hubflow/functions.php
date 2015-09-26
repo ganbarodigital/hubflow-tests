@@ -1,5 +1,6 @@
 <?php
 
+use GanbaroDigital\ST2\Hubflow\ExpectsHubflowOutput;
 use GanbaroDigital\ST2\Hubflow\UsingHubflow;
 
 /**
@@ -30,4 +31,12 @@ function fromHubflow($pathToRepo)
 function usingHubflow($pathToRepo)
 {
     return new UsingHubflow($pathToRepo);
+}
+
+/**
+ * @return ExpectsHubflowOutput
+ */
+function expectsHubflowOutput()
+{
+	return new ExpectsHubflowOutput;
 }
