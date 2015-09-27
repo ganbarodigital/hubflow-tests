@@ -35,6 +35,11 @@ fi
 # at this point, Storyplayer and all of its dependencies have been
 # successfully downloaded and installed
 
+# make sure we have somewhere to download Hubflow into
+if [[ ! -e ./tmp ]] ; then
+	mkdir ./tmp || die "Unable to create folder ./tmp"
+fi
+
 # separate out the system-under-test
 SUT=$1
 [[ -z $SUT && SUT="1.5.2" ]]
