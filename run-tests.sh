@@ -37,6 +37,7 @@ fi
 
 # separate out the system-under-test
 SUT=$1
+[[ -z $SUT && SUT="1.5.2" ]]
 shift
 
 # we need to make sure we have the copy of Hubflow that we want to test
